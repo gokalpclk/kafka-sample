@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: user-service
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/kafka
+    username: postgres
+    password: rootroot
+
+logging:
+  level:
+    root: DEBUG
+server:
+    port: 8080
+kafka:
+  host: localhost:9092
+  topics:
+    user-created:
+      topicName: ${spring.application.name}.user_created.0
+      partitionCount: 1
+      replicationFactor: 1
+      retentionInMs: 604800000
