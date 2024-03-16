@@ -4,8 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.outplay.userservice.config.kafka.producer.KafkaProducer;
 import org.outplay.userservice.config.kafka.properties.UserCreatedTopicProperties;
 import org.outplay.userservice.model.UserMapper;
+import org.outplay.userservice.model.dto.MailSendPayload;
 import org.outplay.userservice.model.dto.UserCreateRequestDto;
-import org.outplay.userservice.model.dto.UserCreatedPayload;
 import org.outplay.userservice.model.entity.User;
 import org.outplay.userservice.repository.UserRepository;
 import org.springframework.messaging.support.GenericMessage;
@@ -34,7 +34,7 @@ public class UserService {
         User user = UserMapper.INSTANCE.userCreateRequestDtoToUser(userCreateRequestDto);
         user = userRepository.save(user);
 
-        UserCreatedPayload payload = UserCreatedPayload.GetUserCreatedPayload(user);
+        MailSendPayload payload = MailSendPayload.GetUserCreatedPayload(user);
 
         Map<String, Object> headers = new HashMap<>();
         headers.put(TOPIC, userCreatedTopicProperties.getTopicName());

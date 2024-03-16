@@ -4,7 +4,6 @@ import lombok.Builder;
 import lombok.Data;
 import org.outplay.userservice.model.entity.User;
 
-import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -13,20 +12,20 @@ import java.util.UUID;
  */
 @Data
 @Builder
-public class UserCreatedPayload {
+public class MailSendPayload {
 
     private UUID id;
-    private String firstName;
-    private String lastName;
     private String email;
+    private String subject;
+    private String message;
     private Boolean status;
 
-    public static UserCreatedPayload GetUserCreatedPayload(User user) {
-        return UserCreatedPayload.builder()
+    public static MailSendPayload GetUserCreatedPayload(User user) {
+        return MailSendPayload.builder()
                 .id(user.getId())
-                .firstName(user.getFirstName())
-                .lastName(user.getLastName())
                 .email(user.getEmail())
+                .subject("Welcome to Outplay")
+                .message("Welcome to Outplay, " + user.getFirstName() + " " + user.getLastName() + "!")
                 .build();
     }
 }
