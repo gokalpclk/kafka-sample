@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Configuration;
  * @project user-service
  */
 @Configuration
-@ConfigurationProperties(prefix = "kafka.topics.user-created")
+@ConfigurationProperties(prefix = "kafka.topics.registered-user")
 @Getter
 @Setter
-public class UserCreatedTopicProperties {
+public class RegisteredUserTopicProperties {
     private String topicName;
     private int partitionCount;
     private short replicationFactor;

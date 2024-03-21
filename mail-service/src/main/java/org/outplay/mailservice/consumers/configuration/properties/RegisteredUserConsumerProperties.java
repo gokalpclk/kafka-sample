@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "kafka.topics.user-created")
 @Getter
 @Setter
-public class MailSendConsumerProperties {
+public class RegisteredUserConsumerProperties {
     private String topic;
     private String consumerGroup;
 }

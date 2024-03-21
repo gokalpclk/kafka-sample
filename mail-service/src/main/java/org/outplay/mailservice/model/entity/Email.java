@@ -27,14 +27,14 @@ public class Email {
     @Column(name = "user_id")
     private UUID userId;
 
-    @Column(name = "email")
-    private String email;
+    @Column(name = "mail")
+    private String to;
 
     @Column(name = "subject")
     private String subject;
 
-    @Column(name = "message")
-    private String message;
+    @Column(name = "body")
+    private String body;
 
 
 }

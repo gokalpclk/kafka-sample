@@ -1,6 +1,7 @@
 package org.outplay.userservice.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.outplay.userservice.model.dto.SendMailRequestDto;
 import org.outplay.userservice.model.dto.UserCreateRequestDto;
 import org.outplay.userservice.model.entity.User;
 import org.outplay.userservice.service.UserService;
@@ -22,5 +23,10 @@ public class UserController {
     @PostMapping
     public User create(@RequestBody UserCreateRequestDto userCreateRequestDto) {
         return userService.createUser(userCreateRequestDto);
+    }
+
+    @PostMapping("/send-mail")
+    public void sendMail(@RequestBody SendMailRequestDto sendMailRequestDto) {
+        userService.sendMail(sendMailRequestDto);
     }
 }

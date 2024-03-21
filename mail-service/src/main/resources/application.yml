@@ -24,8 +24,13 @@ server:
 kafka:
   host: localhost:9092
   topics:
-    user-created:
-      topic: user-service.send-mail.0
-      consumerGroup: ${spring.application.name}-send-mail-consumer
+    registered-user:
+      topic: user-service.registered-user.0
+      consumerGroup: ${spring.application.name}-registered-user-consumer
+      replicationFactor: 1
+      retentionInMs: 604800000
+    customized-mail:
+      topic: user-service.customized-mail.0
+      consumerGroup: ${spring.application.name}-customized-mail-consumer
       replicationFactor: 1
       retentionInMs: 604800000

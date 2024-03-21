@@ -15,18 +15,14 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class MailSendEvent {
+public class SendMailForRegisteredUserEvent {
     private UUID id;
-    private String email;
-    private String subject;
-    private String message;
+    private String to;
 
-    public static Email getAddressEntityFromEvent(MailSendEvent event) {
+    public static Email getEmailEntityFromEvent(SendMailForRegisteredUserEvent event) {
         return Email.builder()
                 .userId(event.getId())
-                .email(event.getEmail())
-                .subject(event.getSubject())
-                .message(event.getMessage())
+                .to(event.getTo())
                 .build();
     }
 }

@@ -20,7 +20,7 @@ import java.util.Map;
  */
 @Configuration
 @RequiredArgsConstructor
-public class MailSendKafkaConsumerConfiguration<T> {
+public class SendMailKafkaConsumerConfiguration<T> {
     @Value("${kafka.host}")
     private String host;
 

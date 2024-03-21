@@ -23,7 +23,7 @@ public class KafkaProducerConfiguration {
     private String kafkaBrokers;
 
     @Bean
-    public KafkaTemplate<String,?> tyKafkaTemplate() {
+    public KafkaTemplate<String, ?> tyKafkaTemplate() {
         return new KafkaTemplate<>(producerConfig());
     }
 
